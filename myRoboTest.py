@@ -47,8 +47,8 @@ t.start()
 while(True):
     sleep(1)
     while(cs_black['0'] or cs2_black['0']):
-       lm.run_forever(speed_sp=SpeedPercent(200), stop_action="hold")
-       lm2.run_forever(speed_sp=SpeedPercent(200), stop_action="hold")
+       lm.run_forever(speed_sp=SpeedPercent(100), stop_action="hold")
+       lm2.run_forever(speed_sp=SpeedPercent(100), stop_action="hold")
        # lm.run_to_rel_pos(position_sp=50, speed_sp=SpeedPercent(40), stop_action="hold")
        # lm2.run_to_rel_pos(position_sp=50, speed_sp=SpeedPercent(40), stop_action="hold")
         
@@ -59,7 +59,7 @@ while(True):
             while(cs_black['0']==False and cs2_black['0']==False):
                 
                 lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-                lm2.run_to_rel_pos(position_sp=10, speed_sp=SpeedPercent(100), stop_action="hold")
+                lm2.run_to_rel_pos(position_sp=3, speed_sp=SpeedPercent(100), stop_action="hold")
                 #sleep(5)
                 #s.beep()
                 
@@ -69,7 +69,7 @@ while(True):
             pass
         else:
             while(cs_black['0']==False and cs2_black['0']==False):
-                lm.run_to_rel_pos(position_sp=10, speed_sp=SpeedPercent(100), stop_action="hold")
+                lm.run_to_rel_pos(position_sp=3, speed_sp=SpeedPercent(100), stop_action="hold")
                 lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
                 #sleep(5)
                 #s2.speak('Hello, I am Robot')
