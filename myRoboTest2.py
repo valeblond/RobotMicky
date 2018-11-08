@@ -43,6 +43,7 @@ def notBlack(cs, cs2):
             cs2_black['0'] = False
 
 
+
 t = Thread(target=notBlack, args=(cs, cs2))
 t.start()
 # keyboard.is_pressed('ENTER') !=

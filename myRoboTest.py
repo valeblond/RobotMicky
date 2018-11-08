@@ -18,7 +18,7 @@ s2 = Sound()
 cs_black = {'0' : False} 
 cs2_black = {'0' : False} 
 #cs2_black = False
-i = {'0' : 0} 
+i = {'0': 0}
 
 # to measure reflected light intensity. In this mode the sensor will return a value between 0 and 100
 cs.mode = 'COL-REFLECT'
