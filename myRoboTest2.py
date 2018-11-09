@@ -30,14 +30,14 @@ cs2.mode = 'COL-REFLECT'
 
 def notBlack(cs, cs2):
     while (True):
-        if (cs.value() < 20):
+        if (cs.value() < 50):
             cs_black['0'] = True
             if (cs_black['0'] and cs2_black['0'] == False):
                 i['0'] = 1
         else:
             cs_black['0'] = False
 
-        if (cs2.value() < 20):
+        if (cs2.value() < 50):
             cs2_black['0'] = True
             if (cs2_black['0'] and cs_black['0'] == False):
                 i['0'] = 2
