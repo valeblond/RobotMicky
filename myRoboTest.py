@@ -13,8 +13,8 @@ cs2 = ColorSensor("in2")
 #global cs_black 
 #global cs2_black
 #global i
-s = Sound()
-s2 = Sound()
+#s = Sound()
+#s2 = Sound()
 cs_black = {'0' : False} 
 cs2_black = {'0' : False} 
 #cs2_black = False

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# so that script can be run from Brickman
 from ev3dev2.motor import LargeMotor
 from ev3dev2.motor import SpeedPercent
 from ev3dev2.sensor.lego import ColorSensor
