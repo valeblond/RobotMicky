@@ -27,14 +27,14 @@ cs2.mode = 'COL-REFLECT'
 def notBlack(cs,cs2):
     
     while(True):
-        if(cs.value() < 20):
+        if(cs.value() < 40):
             cs_black['0'] = True
             if(cs_black['0'] and cs2_black['0'] == False):
                 i['0'] = 1
         else:
             cs_black['0'] = False
 
-        if (cs2.value() < 20):
+        if (cs2.value() < 40):
             cs2_black['0'] = True
             if (cs2_black['0'] and cs_black['0'] == False):
                 i['0'] = 2
@@ -58,8 +58,8 @@ while(True):
         else:
             while(cs_black['0']==False and cs2_black['0']==False):
                 
-                lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-                lm2.run_to_rel_pos(position_sp=3, speed_sp=SpeedPercent(100), stop_action="hold")
+                lm.run_forever(position_sp=0, stop_action="hold")
+                lm2.run_forever(position_sp=15, speed_sp=900, stop_action="hold")
                 #sleep(5)
                 #s.beep()
                 
@@ -69,7 +69,7 @@ while(True):
             pass
         else:
             while(cs_black['0']==False and cs2_black['0']==False):
-                lm.run_to_rel_pos(position_sp=3, speed_sp=SpeedPercent(100), stop_action="hold")
+                lm.run_to_rel_pos(position_sp=15, speed_sp=900, stop_action="hold")
                 lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
                 #sleep(5)
                 #s2.speak('Hello, I am Robot')
