@@ -54,7 +54,7 @@ while (True):
             lm.run_to_rel_pos(position_sp=0, stop_action="hold")
             lm2.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
         lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm2.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
+        lm2.run_to_rel_pos(position_sp=45, speed_sp=500, stop_action="hold")
             
             
         
@@ -62,7 +62,7 @@ while (True):
         while (cs_black['0'] == False and cs2_black['0'] == False):
             lm.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
             lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
+        lm.run_to_rel_pos(position_sp=45, speed_sp=500, stop_action="hold")
         lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
             
 

@@ -24,8 +24,8 @@ Kd = 0  # derivative gain
 
 integral = 0
 previous_error = 0
-#target_value = cs.value()
-mid = cs.value()
+target_value = cs.value()
+#mid = cs.value()
 def notBlack(cs, cs2):
     while (True):
         if (cs.value() < 30):

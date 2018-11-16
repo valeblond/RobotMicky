@@ -5,7 +5,7 @@ from threading import Thread
 from time import sleep
 from ev3dev2.sound import Sound
 
-lm = LargeMotor('outA')
+lm = LargeMotor('outB')
 lm2 = LargeMotor('outD')
 cs = ColorSensor("in1")
 cs2 = ColorSensor("in2")

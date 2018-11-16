@@ -18,6 +18,15 @@ k = {'0': 0}
 cs.mode = 'COL-REFLECT'
 cs2.mode = 'COL-REFLECT'
 
+dt = 500 
+Kp = 0.4  # proportional gain
+Ki = 0.1  # integral gain
+Kd = 0.2  # derivative gain
+
+integral = 0
+previous_error = 0
+target_value = cs.value()
+
 
 def notBlack(cs, cs2):
     while (True):
@@ -36,15 +45,21 @@ def notBlack(cs, cs2):
             cs2_black['0'] = False
 
 
+error = target_value - cs.value()
+integral += (error * dt)
+derivative = (error - previous_error) / dt
+
+u = (Kp * error) + (Ki * integral) + (Kd * derivative)
+
 t = Thread(target=notBlack, args=(cs, cs2))
 t.start()
 
 sleep(1)
 while (True):
     while (cs_black['0'] or cs2_black['0']):
-        sleep(0.4)
-        lm.run_forever(speed_sp=150, stop_action="hold")
-        lm2.run_forever(speed_sp=150, stop_action="hold")
+        sleep(1)
+        lm.run_forever(speed_sp=SpeedPercent(100), stop_action="hold")
+        lm2.run_forever(speed_sp=SpeedPercent(100), stop_action="hold")
 
     lm.stop(stop_action="hold")
     lm2.stop(stop_action="hold")
@@ -52,17 +67,17 @@ while (True):
     if (i['0'] == 1):
         while (cs_black['0'] == False and cs2_black['0'] == False):
             lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-            lm2.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
+            lm2.run_to_rel_pos(position_sp=6, speed_sp=300, stop_action="hold")
         lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm2.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
+        lm2.run_to_rel_pos(position_sp=15, speed_sp=600, stop_action="hold")
             
             
         
     elif (i['0'] == 2):
         while (cs_black['0'] == False and cs2_black['0'] == False):
-            lm.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
+            lm.run_to_rel_pos(position_sp=6, speed_sp=300, stop_action="hold")
             lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
+        lm.run_to_rel_pos(position_sp=15, speed_sp=600, stop_action="hold")
         lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
             
 

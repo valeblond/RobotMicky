@@ -28,14 +28,14 @@ cs2.mode = 'COL-REFLECT'
 def notBlack(cs,cs2):
     
     while(True):
-        if(cs.value() < 30):
+        if(cs.value() < 35):
             cs_black['0'] = True
             if(cs_black['0'] and cs2_black['0'] == False):
                 i['0'] = 1
         else:
             cs_black['0'] = False
 
-        if (cs2.value() < 30):
+        if (cs2.value() < 35):
             cs2_black['0'] = True
             if (cs2_black['0'] and cs_black['0'] == False):
                 i['0'] = 2
@@ -61,7 +61,7 @@ while(True):
             while(cs_black['0']==False and cs2_black['0']==False):
                 
                 lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-                lm2.run_to_rel_pos(position_sp=4, speed_sp=900, stop_action="hold")
+                lm2.run_to_rel_pos(position_sp=5, speed_sp=300, stop_action="hold")
                 #lm.run_forever(speed_sp=0, stop_action="hold")
                 #lm2.run_forever(speed_sp=SpeedPercent(100), stop_action="hold")
                 
@@ -73,7 +73,7 @@ while(True):
             pass
         else:
             while(cs_black['0']==False and cs2_black['0']==False):
-                lm.run_to_rel_pos(position_sp=4, speed_sp=900, stop_action="hold")
+                lm.run_to_rel_pos(position_sp=5, speed_sp=300, stop_action="hold")
                 lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
                 #lm.run_forever(speed_sp=SpeedPercent(100), stop_action="hold")
                 #lm2.run_forever(speed_sp=0, stop_action="hold")
