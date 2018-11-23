@@ -7,7 +7,7 @@ from threading import Thread
 from time import sleep
 from ev3dev.ev3 import *
 
-lm = LargeMotor('outB')
+lm = LargeMotor('outA')
 lm2 = LargeMotor('outD')
 cs = ColorSensor("in1")
 cs2 = ColorSensor("in2")
@@ -37,14 +37,14 @@ def notBlack(cs, cs2):
         else:
             cs2_black['0'] = False
 
-        if(cs.value() < 22 or cs2.value() < 22):
+        if(cs.value() < 26 or cs2.value() < 26):
             if (cs.value() > 10 and cs.value() < 30 and cs2.value() < 10): # turn right
                 k['0'] == 1
 
             if (cs.value() < 10 and cs2.value() > 10 and cs2.value() < 30): # turn left
                 k['0'] == 1
 
-            if (cs.value() < 10 and cs2.value() < 10):
+            if (cs.value() < 26 and cs2.value() < 26):
                 if(cs.value() > cs2.value()):
                     k['0'] == 3             # turn right
                 else:
@@ -69,25 +69,25 @@ while (True):
         while (cs_black['0'] == False and cs2_black['0'] == False):
             lm.run_to_rel_pos(position_sp=0, stop_action="hold")
             lm2.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
-        lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm2.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
+        lm.run_to_rel_pos(position_sp=2, stop_action="hold")
+        lm2.run_to_rel_pos(position_sp=30, speed_sp=300, stop_action="hold")
     elif (i['0'] == 2 and k['0'] == 0):
         while (cs_black['0'] == False and cs2_black['0'] == False):
             lm.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
             lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
-        lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
+        lm.run_to_rel_pos(position_sp=30, speed_sp=300, stop_action="hold")
+        lm2.run_to_rel_pos(position_sp=2, stop_action="hold")
 
     if(k['0'] == 1 or k['0'] == 3):     # turn right
         while(k['0'] != 0):
-            lm.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
+            lm.run_to_rel_pos(position_sp=4, speed_sp=150, stop_action="hold")
             lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
-        lm2.run_to_rel_pos(position_sp=0, stop_action="hold")
+        lm.run_to_rel_pos(position_sp=10, speed_sp=100, stop_action="hold")
+        lm2.run_to_rel_pos(position_sp=2, stop_action="hold")
     elif(k['0'] == 2 or k['0'] == 4):   # turn left
         while(k['0'] != 0):
             lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-            lm2.run_to_rel_pos(position_sp=7, speed_sp=200, stop_action="hold")
-        lm.run_to_rel_pos(position_sp=0, stop_action="hold")
-        lm2.run_to_rel_pos(position_sp=30, speed_sp=500, stop_action="hold")
+            lm2.run_to_rel_pos(position_sp=4, speed_sp=150, stop_action="hold")
+        lm.run_to_rel_pos(position_sp=2, stop_action="hold")
+        lm2.run_to_rel_pos(position_sp=10, speed_sp=100, stop_action="hold")
 
